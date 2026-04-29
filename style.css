@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section {
+    padding: 100px 0;
+    height: 100vh;
+    background: repeating-linear-gradient(
+        45deg,
+        lightyellow,
+        ivory,
+        floralwhite,
+        ivory,
+        lightyellow
+    );
+}
+
+.container {
+    max-width: 800px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.display {
+    padding: 50px;
+    background-color: lightgray;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.navigation {
+    height: 60px;
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.navigation button {
+    width: 20%;
+    height: 100%;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.navigation button:hover {
+    background-color: whitesmoke;
+}
+
+.navigation .current {
+    width: 60%;
+    height: 100%;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navigation .current h2 {
+    margin: 0;
+}
+
+table {
+    width: 100%;
+    padding: 15px 15px 25px;
+    background-color: white;
+    border-radius: 8px;
+    border-spacing: 0;
+    border-collapse: collapse;
+    box-shadow: 0 0 0 1px black;
+}
+
+thead {
+    text-transform: capitalize;
+}
+
+th {
+    font-size: 18px;
+    padding: 20px;
+}
+
+tr {
+    text-align: center;
+    vertical-align: middle;
+}
+
+tr.this-week {
+    background-color: lemonchiffon;
+}
+
+td {
+    padding: 10px;
+    font-size: 16px;
+    color: black;
+}
+
+td.other-mo {
+    color: slategray;
+    background-color: rgba(231, 231, 231, 0.25);
+}
+
+tr.this-week td.other-mo {
+    color: gray;
+    background-color: transparent;
+}
+
+td.today {
+    font-size: 18px;
+    background-color: gold !important;
+}
+
+tr.last-week td {
+    padding-bottom: 25px;
+}
+
+tr.week6 {
+    display: none;
+}
+
+tr.week6.last-week {
+    display: contents;
+}
