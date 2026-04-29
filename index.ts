@@ -237,7 +237,7 @@ function isTodayMonthYear(calendarMonthYear: string): boolean {
         getMonthStr(todayMonth)
     } ${today.getFullYear()}`;
 
-    return calendarMonthYear === todayMonthYearStr;
+    return calendarMonthYear === todayMonthYearStr; //bug here
 }
 
 /** Checks if the current calendar month is the one that comes after today's month*/
@@ -308,8 +308,13 @@ function isTodayMonthAndDate(
     calMonthYear: string,
     dayOfWeek: Element,
 ): boolean {
+    const weekRow = dayOfWeek.parentElement;
     const dayDate = Number(dayOfWeek.textContent);
+    const newMonth = [1, 2, 3, 4, 5, 6, 7];
+    const isDateFromNextMonth = newMonth.includes(dayDate);
 
+    if (weekRow?.className === "week1" && dayDate > 7) return false;
+    if (weekRow?.className.includes("last-week") && isDateFromNextMonth) return false;
     return isTodayMonthYear(calMonthYear) && isDateTodayDate(dayDate);
 }
 
@@ -336,6 +341,7 @@ function setsThisWeekAndTodayClass(
 
     if (weekRow === null) return;
     if (isPreviousMonthDate(calMonthYear, dayOfWeek)) {
+        console.log("here");
         dayOfWeek.classList.add("today");
         weekRow?.classList.add("this-week");
     } else if (isTodayMonthAndDate(calMonthYear, dayOfWeek)) {
